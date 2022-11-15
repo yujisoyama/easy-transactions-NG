@@ -8,20 +8,18 @@ module.exports = {
   ],
   theme: {
     colors: {
-      background: '#0f0e17',
-      backgroundLight: '#262339',
-      highlight: '#ff8906',
-      disabled: '#FFDF9A',
-      paragraph: '#a7a9be',
+      background: '#16161a',
+      headline: '#fffffe',
+      highlight: '#7f5af0',
+      paragraph: '#94a1b2',
       buttonText: '#fffffe',
       buttonHover: '',
       main: '#fffffe',
-      secondary: '#f25f4c',
-      attention: '#e53170'
+      secondary: '#72757e',
+      tertiary: '#2cb67d'
     },
     screens: {
       'mobile': { 'max': '700px' },
-      'modalResponsive': { 'max': '1100px' }
     },
     fontFamily: {
       noto: ['Noto Sans', 'sans-serif'],
@@ -29,8 +27,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        background: "url('/assets/background.svg')",
-        backgroundMobile: "url('/assets/background-mobile.svg')"
+        loginBackground: "url('/assets/loginBackground.svg')",
       },
     },
   },
