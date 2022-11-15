@@ -7,7 +7,7 @@ export class Account {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: 'int' })
+    @Column({ type: 'int', default: 100 })
     balance: number;
 
     @OneToOne(() => User, user => user.account)
