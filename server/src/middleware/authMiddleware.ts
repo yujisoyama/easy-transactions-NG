@@ -9,23 +9,30 @@ interface JWTPayload {
 
 const jwtPass = process.env.JWT_PASS as string;
 
-export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
+const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { authorization } = req.headers;
 
-        if (authorization) {
-            const token = authorization.split(' ')[1];
-            const { id } = jwt.verify(token, jwtPass) as JWTPayload;
-            const user = await userRepository.findOneBy({ id });
-            if (!user) {
-                return res.status(401).json("Not authorized.")
-            }
-            const { password: _, ...loggedUser } = user;
-            req.user = loggedUser;
-            next();
+        if (!authorization) {
+            return res.status(401).json("Not authorized.");
         }
-        res.status(401).json("Not authorized.");
+
+        const token = authorization.split(' ')[1];
+        const { id } = jwt.verify(token, jwtPass) as JWTPayload;
+        const loggedUser = await userRepository.findOneBy({ id });
+        if (!loggedUser) {
+            return res.status(401).json("Not authorized.")
+        }
+        const { username, account } = loggedUser;
+        const { balance } = account;
+        req.user = {
+            username,
+            balance
+        };
+        next();
     } catch (error) {
         return res.status(500).json({ message: "Unexpected error." });
     }
 }
+
+export default authMiddleware;

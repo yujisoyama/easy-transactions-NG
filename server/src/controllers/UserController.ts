@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import IUserService from "../@types/IUserService";
 
-
 class UserController {
 
     async save(req: Request, res: Response, userService: IUserService) {
