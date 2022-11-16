@@ -12,18 +12,19 @@ class UserService implements IUserService {
     private jwtPass = process.env.JWT_PASS as string;
 
     async save({ username, password }: IUserSave): Promise<User | string> {
+        if (username.indexOf(" ") >= 0) {
+            return "The username must not contain spaces."
+        }
+
         if (username.length < 3) {
             return "The username must contain at least 3 characters.";
         }
 
-        const checkUserAlreadyExists = await userRepository.find({
-            where: {
-                username
-            },
-            select: ["id"],
-        });
+        const checkUserAlreadyExists = await userRepository.createQueryBuilder("user")
+            .where("LOWER(user.username) = LOWER(:username)", { username })
+            .getOne();
 
-        if (checkUserAlreadyExists.length) {
+        if (checkUserAlreadyExists) {
             return "This username is already being used.";
         }
 

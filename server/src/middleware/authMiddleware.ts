@@ -23,11 +23,11 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction) =
         if (!loggedUser) {
             return res.status(401).json("Not authorized.")
         }
-        const { username, account } = loggedUser;
-        const { balance } = account;
+        const { id: userId, username, account } = loggedUser;
         req.user = {
+            id: userId,
             username,
-            balance
+            account
         };
         next();
     } catch (error) {
