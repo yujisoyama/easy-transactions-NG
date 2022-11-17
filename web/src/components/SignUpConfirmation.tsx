@@ -11,8 +11,9 @@ export const SignUpConfirmation = (props: ISignUpConfirmProps) => {
             <CheckSquare className="mx-auto" size={40} color="#2cb67d" weight="bold" />
             <h1 className="text-highlightGreen text-center font-extrabold text-2xl mt-3 mb-4">Account created!</h1>
             <p className="mb-4">Hi {props.username}, </p>
-            <p className="mb-4">Thank you! Feel free to use the platform. Hope you enjoy!</p>
-            <p className="text-right"><Link to="/" className="text-main hover:underline">Return to Log in page</Link></p>
+            <p>Feel free to use the platform.</p>
+            <p className="mb-4">Hope you enjoy!</p>
+            <p className="text-right"><Link to="/" className="text-main text-sm hover:underline">Return to Log in page</Link></p>
         </div>
     )
 }

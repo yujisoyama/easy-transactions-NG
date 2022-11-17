@@ -1,6 +1,7 @@
+import { InputHTMLAttributes } from "react";
 import { ThreeDots } from "react-loader-spinner";
 
-interface IButtonProps {
+interface IButtonProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
     loading: boolean;
 }

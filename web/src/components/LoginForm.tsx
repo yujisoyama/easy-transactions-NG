@@ -1,7 +1,7 @@
 import { Lock, UserSquare, Wallet } from "phosphor-react"
 import { Link } from "react-router-dom"
 import { ConfirmButton } from "./ConfirmButton"
-import { TextInput } from "./TextInput"
+import { Input } from "./Input"
 
 export const LoginForm = () => {
     return (
@@ -12,11 +12,11 @@ export const LoginForm = () => {
                 <form className="flex flex-col gap-6 relative">
                     <div className="relative w-5/6 mx-auto">
                         <UserSquare className="inline absolute top-[0.45rem] left-2" size={30} color='#1e7b54' weight="bold" />
-                        <TextInput name="email" id="email" type='text' placeholder="username" />
+                        <Input name="email" id="email" type='text' placeholder="username" />
                     </div>
                     <div className="relative w-5/6 mx-auto">
                         <Lock className="inline absolute top-[0.5rem] left-2" size={30} color='#1e7b54' weight="bold" />
-                        <TextInput name="password" id="password" type='password' placeholder="password" />
+                        <Input name="password" id="password" type='password' placeholder="password" />
                     </div>
                     <div className="w-3/4 mx-auto mt-3">
                         <ConfirmButton loading={false} label='Log in' />
