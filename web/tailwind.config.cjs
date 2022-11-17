@@ -9,17 +9,22 @@ module.exports = {
   theme: {
     colors: {
       background: '#16161a',
+      backgroundLight: '#242629',
       headline: '#fffffe',
-      highlight: '#7f5af0',
+      highlightBlue: '#7f5af0',
       paragraph: '#94a1b2',
       buttonText: '#fffffe',
-      buttonHover: '',
+      buttonHover: '#5d2deb',
+      buttonDisabled: '#a58bf4',
       main: '#fffffe',
+      stroke: '#010101',
       secondary: '#72757e',
-      tertiary: '#2cb67d'
+      highlightGreen: '#2cb67d',
+      alertBackground: '#eb9393',
+      alert: '#e16162'
     },
     screens: {
-      'mobile': { 'max': '700px' },
+      'mobile': { 'max': '500px' },
     },
     fontFamily: {
       noto: ['Noto Sans', 'sans-serif'],
@@ -28,6 +33,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         loginBackground: "url('/assets/loginBackground.svg')",
+        loginBackgroundMobile: "url('/assets/loginBackground-mobile.svg')"
       },
     },
   },
