@@ -44,11 +44,7 @@ class TransactionController {
             if (!result.length) {
                 return res.status(200).json({ message: "You don't have transactions with this filter." })
             }
-
-            result.forEach(transaction => {
-                delete transaction.debitedAccountId.balance;
-                delete transaction.creditedAccountId.balance;
-            });
+            
             return res.status(200).json(result);
         } catch (error) {
             return res.status(500).json({ message: error })
