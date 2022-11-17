@@ -1,6 +1,14 @@
+import { useEffect } from "react"
 
 export const TransactionsHistoryTab = () => {
+
+    useEffect(() => {
+        
+    });
+
     return (
-        <div>TransactionsHistoryTab</div>
+        <div className="">
+            TransactionsHistoryTab
+        </div>
     )
 }

@@ -14,6 +14,8 @@ export const getTransactionByAccountDateCashInAndOut = async (accountId: number,
     return await transactionRepository.createQueryBuilder("transaction")
         .where(`DATE_TRUNC('day', "createdAt") = :date`, { date })
         .andWhere("(transaction.debitedAccountId = :accountId OR transaction.creditedAccountId = :accountId)", { accountId })
+        .leftJoinAndSelect("transaction.debitedAccountId", "debitedAccount")
+        .leftJoinAndSelect("transaction.creditedAccountId", "creditedAccount")
         .getMany();
 }
 
@@ -21,6 +23,8 @@ export const getTransactionByAccountDateCashOut = async (accountId: number, date
     return await transactionRepository.createQueryBuilder("transaction")
         .where(`DATE_TRUNC('day', "createdAt") = :date`, { date })
         .andWhere("transaction.debitedAccountId = :accountId", { accountId })
+        .leftJoinAndSelect("transaction.debitedAccountId", "debitedAccount")
+        .leftJoinAndSelect("transaction.creditedAccountId", "creditedAccount")
         .getMany();
 }
 
@@ -28,6 +32,8 @@ export const getTransactionByAccountDateCashIn = async (accountId: number, date:
     return await transactionRepository.createQueryBuilder("transaction")
         .where(`DATE_TRUNC('day', "createdAt") = :date`, { date })
         .andWhere("transaction.creditedAccountId = :accountId", { accountId })
+        .leftJoinAndSelect("transaction.debitedAccountId", "debitedAccount")
+        .leftJoinAndSelect("transaction.creditedAccountId", "creditedAccount")
         .getMany();
 }
 

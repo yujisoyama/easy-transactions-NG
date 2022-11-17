@@ -6,15 +6,15 @@ export class Transaction {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Account, account => account.debitedTransaction)
-    @JoinColumn({name: 'debitedAccountId'})
+    @ManyToOne(() => Account, account => account.debitedTransaction, { eager: true })
+    @JoinColumn({ name: 'debitedAccountId' })
     debitedAccountId: Account;
 
-    @ManyToOne(() => Account, account => account.creditedTransaction)
-    @JoinColumn({name: 'creditedAccountId'})
+    @ManyToOne(() => Account, account => account.creditedTransaction, { eager: true })
+    @JoinColumn({ name: 'creditedAccountId' })
     creditedAccountId: Account;
 
-    @Column({type: 'float'})
+    @Column({ type: 'float' })
     value: number;
 
     @CreateDateColumn()
