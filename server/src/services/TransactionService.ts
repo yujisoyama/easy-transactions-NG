@@ -4,6 +4,7 @@ import { Transaction } from "../entities/Transaction";
 import { transactionRepository } from "../repositories/TransactionRepository";
 import { userRepository } from "../repositories/UserRepository";
 import { databaseQueryTransaction } from "../utils/databaseQueryTransaction";
+import { getTransactionByAccount, getTransactionByAccountCashIn, getTransactionByAccountCashOut, getTransactionByAccountDateCashIn, getTransactionByAccountDateCashInAndOut, getTransactionByAccountDateCashOut } from "../utils/getTransactionsByFilter";
 
 
 class TransactionService implements ITransactionService {
@@ -62,29 +63,33 @@ class TransactionService implements ITransactionService {
         return updatedCashOutAccount;
     }
 
-    async getTransactions(account: Account, date?: Date | undefined, transactionType?: string | undefined): Promise<any> {
-        if (typeof date !== undefined && typeof transactionType !== undefined) {
+    async haveTransaction(account: Account): Promise<Transaction[]> {
+        return await getTransactionByAccount(account);
+    }
+
+    async getTransactions(account: Account, date?: Date | undefined, transactionType?: string | undefined): Promise<Transaction[]> {
+        if (date !== undefined && transactionType !== undefined) {
             switch (transactionType) {
                 case 'both':
-                    const bothTransactions = await transactionRepository.createQueryBuilder("transaction")
-                        .where(`DATE_TRUNC('day', "createdAt") = :date`, { date })
-                        .andWhere("(transaction.debitedAccountId = :account OR transaction.creditedAccountId = :account)", { account })
-                        .getMany();
-                    return bothTransactions;
+                    return await getTransactionByAccountDateCashInAndOut(account.id, date!);
                 case 'cash-out':
-                    const cashOutTransactions = await transactionRepository.createQueryBuilder("transaction")
-                        .where(`DATE_TRUNC('day', "createdAt") = :date`, { date })
-                        .andWhere("transaction.debitedAccountId = :account", { account })
-                        .getMany();
-                    return cashOutTransactions;
+                    return await getTransactionByAccountDateCashOut(account.id, date!);
                 case 'cash-in':
-                    const cashInTransactions = await transactionRepository.createQueryBuilder("transaction")
-                        .where(`DATE_TRUNC('day', "createdAt") = :date`, { date })
-                        .andWhere("transaction.creditedAccountId = :account", { account })
-                        .getMany();
-                    return cashInTransactions;
+                    return await getTransactionByAccountDateCashIn(account.id, date!);
             }
         }
+
+        if (date === undefined && transactionType !== undefined) {
+            switch (transactionType) {
+                case 'both':  
+                    return await getTransactionByAccount(account);
+                case 'cash-out':
+                    return await getTransactionByAccountCashOut(account);
+                case 'cash-in':
+                    return await getTransactionByAccountCashIn(account);
+            }
+        }
+        return [];
     }
 }
 const transactionService = new TransactionService();
