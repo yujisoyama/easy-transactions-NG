@@ -31,7 +31,7 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction) =
         };
         next();
     } catch (error) {
-        return res.status(401).json({ message: "Session expired, please Log in again." });
+        return res.status(401).json({ message: "Session expired, please log in again." });
     }
 }
 

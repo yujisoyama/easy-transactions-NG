@@ -1,14 +1,15 @@
-import { InputHTMLAttributes } from "react";
+import { FormEvent, InputHTMLAttributes } from "react";
 import { ThreeDots } from "react-loader-spinner";
 
 interface IButtonProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
     loading: boolean;
+    handleClick?: (event: FormEvent) => void;
 }
 
 export const ConfirmButton = (props: IButtonProps) => {
     return (
-        <button disabled={props.loading} className={`w-full h-10 rounded-full font-extrabold text-stroke ${props.loading ? 'bg-buttonDisabled' : 'bg-highlightBlue hover:bg-buttonHover duration-200'}`} type="submit">
+        <button onClick={props.handleClick} disabled={props.loading} className={`w-full h-10 rounded-full font-extrabold text-stroke ${props.loading ? 'bg-buttonDisabled' : 'bg-highlightBlue hover:bg-buttonHover duration-200'}`} type="submit">
             {props.loading
                 ? <ThreeDots
                     height="20"

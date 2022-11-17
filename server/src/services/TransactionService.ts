@@ -58,6 +58,8 @@ class TransactionService implements ITransactionService {
         if (typeof result === "string") {
             return result;
         }
+
+        return updatedCashOutAccount;
     }
 
     async getTransactions(account: Account, date?: Date | undefined, transactionType?: string | undefined): Promise<any> {

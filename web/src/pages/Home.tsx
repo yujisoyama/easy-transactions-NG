@@ -7,16 +7,17 @@ import { LoginForm } from "../components/LoginForm"
 import { useUser } from "../context/UserContext"
 
 export const Home = () => {
-    const { setToken, setAuthenticated } = useUser();
+    const { authErrorMessage, setToken, setAuthenticated, setAuthErrorMessage } = useUser();
     const [loading, setLoading] = useState<boolean>(false);
-    const [errorMessage, setErrorMessage] = useState<string>("");
+    const [loginErrorMessage, setLoginErrorMessage] = useState<string>("");
     const navigate = useNavigate();
     let timer: number;
 
     const handleLogin = (event: FormEvent) => {
         event.preventDefault();
         setLoading(true);
-        setErrorMessage("");
+        setLoginErrorMessage("");
+        setAuthErrorMessage("");
         const formData = new FormData(event.target as HTMLFormElement);
         const form = Object.fromEntries(formData);
         timer = setTimeout(async () => await login(form), 1000);
@@ -29,10 +30,10 @@ export const Home = () => {
             password: form.password
         }).then(res => {
             localStorage.setItem("ngtoken", res.data.token)
-            setToken(res.data);
+            setToken(res.data.token);
             navigate("/dashboard");
         }).catch(error => {
-            setErrorMessage(error.response.data.message);
+            setLoginErrorMessage(error.response.data.message);
         }).finally(() => {
             setLoading(false);
             clearTimeout(timer);
@@ -42,7 +43,7 @@ export const Home = () => {
     return (
         <div className="bg-loginBackground bg-cover bg-no-repeat w-screen h-screen overflow-y-auto flex flex-col justify-between mobile:bg-loginBackgroundMobile">
             <HomeHeader />
-            <LoginForm loading={loading} errorMessage={errorMessage} handleLogin={handleLogin} />
+            <LoginForm loading={loading} loginErrorMessage={loginErrorMessage} authErrorMessage={authErrorMessage} handleLogin={handleLogin} />
             <Footer />
         </div>
     )

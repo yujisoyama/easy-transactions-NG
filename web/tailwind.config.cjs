@@ -25,6 +25,7 @@ module.exports = {
     },
     screens: {
       'mobile': { 'max': '500px' },
+      'dashboardMobile': { 'max': '900px' }
     },
     fontFamily: {
       noto: ['Noto Sans', 'sans-serif'],

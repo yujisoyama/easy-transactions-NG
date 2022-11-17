@@ -7,7 +7,8 @@ import { Input } from "./Input"
 
 interface ILoginFormProps {
     loading: boolean;
-    errorMessage: string;
+    loginErrorMessage: string;
+    authErrorMessage: string;
     handleLogin: (event: FormEvent) => void
 }
 
@@ -16,8 +17,10 @@ export const LoginForm = (props: ILoginFormProps) => {
         <div className="w-[400px] p-8 mx-auto my-12 opacity-95 rounded-[15px] bg-background font-open relative mobile:w-[300px] mobile:my-16 mobile:p-4">
             <Wallet className="mx-auto" size={40} color="#2cb67d" weight="bold" />
             <h1 className="text-highlightGreen text-center font-extrabold text-2xl mt-3 mb-7">Log in to your account</h1>
-            {props.errorMessage &&
-                <FormInputError message={props.errorMessage} />
+            {props.loginErrorMessage &&
+                <FormInputError message={props.loginErrorMessage} />
+            }{props.authErrorMessage &&
+                <FormInputError message={props.authErrorMessage} />
             }
             <div>
                 <form onSubmit={props.handleLogin} className="flex flex-col gap-6 relative">

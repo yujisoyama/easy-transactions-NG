@@ -13,9 +13,11 @@ const USER_CONTEXT_DEFAULT = {
     },
     token: '',
     authenticated: false,
+    authErrorMessage: '',
     setUser: () => { },
     setToken: () => { },
     setAuthenticated: () => { },
+    setAuthErrorMessage: () => { },
     getAccount: () => { },
 }
 
@@ -25,6 +27,7 @@ export const UserProvider = (props: any) => {
     const [user, setUser] = useState<IUser>(USER_CONTEXT_DEFAULT.user);
     const [token, setToken] = useState<string>(localStorage.getItem("ngtoken") || "");
     const [authenticated, setAuthenticated] = useState<boolean | undefined>(undefined);
+    const [authErrorMessage, setAuthErrorMessage] = useState<string>("");
 
     const getAccount = async (token: string) => {
         await api.get('/user/account', {
@@ -41,12 +44,13 @@ export const UserProvider = (props: any) => {
             setAuthenticated(true);
         }).catch(error => {
             localStorage.setItem("ngtoken", "");
+            setAuthErrorMessage(error.response.data.message);
             setAuthenticated(false);
         })
     }
 
     return (
-        <UserContext.Provider value={{ user, token, authenticated, setUser, setToken, setAuthenticated, getAccount }}>
+        <UserContext.Provider value={{ user, token, authenticated, authErrorMessage, setUser, setToken, setAuthenticated, setAuthErrorMessage, getAccount }}>
             {props.children}
         </UserContext.Provider>
     )
