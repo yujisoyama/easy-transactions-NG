@@ -45,7 +45,8 @@
 
 > Back-end: 
 
-- <strong>Node e Express</strong>: utilizei para o desenvolvimento server-side e a criação de suas rotas.
+- <strong>Node e Express</strong>: desenvolvimento server-side e a criação de suas rotas.
 - <strong>TypeScript</strong>: utilizei para tipar a aplicação através de interfaces.
-- <strong>TypeORM</strong>: utilizei para fazer toda a integração do servidor com o banco de dados PostgreSQL.
-- <strong>Postman</strong>: utilizei para testar os end-points desenvolvidos e a troca de informações do servidor com o client em Json.
+- <strong>TypeORM</strong>: integração da aplicação com o PostgreSQL através de classes entidades, consultas, e design da arquitetura do banco de dados.
+- <strong>JWT</strong>: JsonWebToken para criação de seção do usuário.
+- <strong>Bcrypt</strong>: hashear a senha salva no banco.
