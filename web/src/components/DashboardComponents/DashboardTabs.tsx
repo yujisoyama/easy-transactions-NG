@@ -1,7 +1,7 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import { useState } from 'react';
-import { TransactionsHistoryTab } from './TransactionsHistoryTab';
-import { TransferTab } from './TransferTab';
+import { TransactionsHistoryTab } from './TransactionHistory/TransactionsHistoryTab';
+import { TransferTab } from './Transfer/TransferTab';
 
 
 export const DashboardTabs = () => {

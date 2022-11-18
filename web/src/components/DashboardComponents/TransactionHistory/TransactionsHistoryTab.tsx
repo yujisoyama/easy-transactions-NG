@@ -1,9 +1,9 @@
 import { FormEvent, useEffect, useState } from "react"
-import { api } from "../Api";
-import { useUser } from "../context/UserContext";
+import { api } from "../../../Api";
+import { useUser } from "../../../context/UserContext";
 import { TransactionHistoryFilter } from "./TransactionHistoryFilter";
 import { TransactionHistoryLoading } from "./TransactionHistoryLoading";
-import { TransctionsHistoryTable } from "./TransctionsHistoryTable";
+import { TransactionsHistoryTable } from "./TransactionsHistoryTable";
 interface IFilter {
     account: {
         id: number;
@@ -89,7 +89,7 @@ export const TransactionsHistoryTab = () => {
         return (
             <>
                 <TransactionHistoryFilter loading={loading} selectDate={selectDate} selectType={selectType} handleFilter={handleFilter} />
-                <TransctionsHistoryTable  transactions={transactions} />
+                <TransactionsHistoryTable  transactions={transactions} />
             </>
         )
     }

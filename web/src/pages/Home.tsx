@@ -2,8 +2,8 @@ import { FormEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { api } from "../Api"
 import { Footer } from "../components/Footer"
-import { HomeHeader } from "../components/HomeHeader"
-import { LoginForm } from "../components/LoginForm"
+import { HomeHeader } from "../components/HomeComponents/HomeHeader"
+import { LoginForm } from "../components/HomeComponents/LoginForm"
 import { useUser } from "../context/UserContext"
 
 export const Home = () => {

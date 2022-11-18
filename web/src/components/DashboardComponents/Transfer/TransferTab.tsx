@@ -1,11 +1,11 @@
 import { At, CurrencyCircleDollar } from "phosphor-react"
 import { FormEvent, useState } from "react";
-import { api } from "../Api";
-import { useUser } from "../context/UserContext";
-import { FormInputError } from "./FormInputError";
-import { Input } from "./Input"
-import { TransactionInfo } from "./TransactionInfo";
-import { TransactionSuccess } from "./TransactionSuccess";
+import { api } from "../../../Api";
+import { useUser } from "../../../context/UserContext";
+import { FormInputError } from "../../FormInputError";
+import { Input } from "../../Input"
+import { TransferInfo } from "./TransferInfo";
+import { TransferSuccess } from "./TransferSuccess";
 
 export const TransferTab = () => {
     const { user, token, setUser } = useUser();
@@ -67,9 +67,9 @@ export const TransferTab = () => {
                     <Input name="destinyUsername" id="destinyUsername" type="number" placeholder="000.00" onChange={setTransaction} />
                 </div>
                 {transactionError && <FormInputError message={transactionError} />}
-                {transactionSuccess && <TransactionSuccess message={transactionSuccess} />}
+                {transactionSuccess && <TransferSuccess message={transactionSuccess} />}
             </div>
-            <TransactionInfo cashOutUser={user.username} cashInUser={cashInUser} transferValue={transactionValue} loading={loading} handleTransfer={handleTransfer} />
+            <TransferInfo cashOutUser={user.username} cashInUser={cashInUser} transferValue={transactionValue} loading={loading} handleTransfer={handleTransfer} />
         </div>
     )
 }

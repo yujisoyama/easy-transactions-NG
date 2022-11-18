@@ -1,4 +1,4 @@
-import img from '../../assets/NG-logo.png'
+import img from '../../../assets/NG-logo.png'
 
 export const HomeHeader = () => {
     return (

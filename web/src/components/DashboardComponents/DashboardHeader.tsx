@@ -1,6 +1,6 @@
 import { SignOut, User } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
+import { useUser } from "../../context/UserContext";
 
 interface IDashboardHeaderProps {
     username: string;

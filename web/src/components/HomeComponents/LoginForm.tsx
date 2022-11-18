@@ -1,9 +1,9 @@
 import { Lock, UserSquare, Wallet } from "phosphor-react"
 import { FormEvent } from "react";
 import { Link } from "react-router-dom"
-import { ConfirmButton } from "./ConfirmButton"
-import { FormInputError } from "./FormInputError";
-import { Input } from "./Input"
+import { ConfirmButton } from "../ConfirmButton"
+import { FormInputError } from "../FormInputError";
+import { Input } from "../Input"
 
 interface ILoginFormProps {
     loading: boolean;

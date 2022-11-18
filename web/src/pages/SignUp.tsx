@@ -2,9 +2,9 @@ import { FormEvent, useState } from "react"
 import { Form } from "react-router-dom"
 import { api } from "../Api"
 import { Footer } from "../components/Footer"
-import { HomeHeader } from "../components/HomeHeader"
-import { SignUpConfirmation } from "../components/SignUpConfirmation"
-import { SignUpForm } from "../components/SignUpForm"
+import { HomeHeader } from "../components/HomeComponents/HomeHeader"
+import { SignUpConfirmation } from "../components/SignUpComponents/SignUpConfirmation"
+import { SignUpForm } from "../components/SignUpComponents/SignUpForm"
 
 export const SignUp = () => {
     const [usernameError, setUsernameError] = useState<boolean>(false);

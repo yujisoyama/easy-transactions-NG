@@ -1,9 +1,9 @@
 import { NotePencil, UserSquare, Lock } from "phosphor-react"
 import { FormEvent } from "react"
 import { Link } from "react-router-dom"
-import { ConfirmButton } from "./ConfirmButton"
-import { FormInputError } from "./FormInputError"
-import { Input } from "./Input"
+import { ConfirmButton } from "../ConfirmButton"
+import { FormInputError } from "../FormInputError"
+import { Input } from "../Input"
 
 interface ISignUpProps {
     usernameError: boolean;

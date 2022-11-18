@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
-import { ConfirmButton } from "./ConfirmButton";
+import { ConfirmButton } from "../../ConfirmButton";
 
-interface ITransactionInfoProps {
+interface ITransferInfoProps {
     cashOutUser: string;
     cashInUser: string;
     transferValue: number;
@@ -9,7 +9,7 @@ interface ITransactionInfoProps {
     handleTransfer: (event: FormEvent) => void;
 }
 
-export const TransactionInfo = (props: ITransactionInfoProps) => {
+export const TransferInfo = (props: ITransferInfoProps) => {
     return (
         <div className="flex flex-col gap-2 text-main w-72">
             <p className="border-b border-paragraph text-lg mb-3">Transaction Info:</p>

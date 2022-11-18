@@ -1,4 +1,4 @@
-import { useUser } from "../context/UserContext";
+import { useUser } from "../../context/UserContext";
 
 export const Balance = () => {
     const { user } = useUser();

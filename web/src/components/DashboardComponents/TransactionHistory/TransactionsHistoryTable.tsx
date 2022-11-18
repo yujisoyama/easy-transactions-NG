@@ -1,12 +1,12 @@
 import { TransactionHistoryRow } from "./TransactionHistoryRow"
 import { ITransactions } from "./TransactionsHistoryTab";
-import "../styles/scrollbar.css"
+import "../../../styles/scrollbar.css"
 
 interface ITransactionHistoryTableProps {
     transactions: ITransactions[];
 }
 
-export const TransctionsHistoryTable = (props: ITransactionHistoryTableProps) => {
+export const TransactionsHistoryTable = (props: ITransactionHistoryTableProps) => {
     return (
         <>
             <div className="w-full mt-6 text-main border-b border-main grid grid-cols-4 text-start mobile:text-[10px]">

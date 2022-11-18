@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 import { Footer } from "./Footer";
-import { HomeHeader } from "./HomeHeader";
-import { DashboardLoading } from "./DashboardLoading";
+import { HomeHeader } from "./HomeComponents/HomeHeader";
+import { DashboardLoading } from "./DashboardComponents/DashboardLoading";
 
 export const PrivateRoutes = () => {
     const { token, authenticated, getAccount } = useUser();

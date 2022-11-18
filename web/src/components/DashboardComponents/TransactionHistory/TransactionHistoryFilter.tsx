@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { ConfirmButton } from "./ConfirmButton"
+import { ConfirmButton } from "../../ConfirmButton"
 
 interface IHistoryFilterProps {
     loading: boolean;

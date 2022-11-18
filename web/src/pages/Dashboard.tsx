@@ -1,6 +1,6 @@
-import { Balance } from "../components/Balance";
-import { DashboardHeader } from "../components/DashboardHeader";
-import { DashboardTabs } from "../components/DashboardTabs";
+import { Balance } from "../components/DashboardComponents/Balance";
+import { DashboardHeader } from "../components/DashboardComponents/DashboardHeader";
+import { DashboardTabs } from "../components/DashboardComponents/DashboardTabs";
 import { Footer } from "../components/Footer";
 import { useUser } from "../context/UserContext";
 
