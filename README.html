@@ -31,7 +31,7 @@
 <ul>
 <li>Vamos construir os containers da aplicação server-side e da aplicação client-side. Para isso, execute os dois comandos abaixo:</li>
 </ul>
-<pre><code>docker compose build server
+<pre><code>docker compose build node
 </code></pre>
 <pre><code>docker compose build web
 </code></pre>
@@ -43,7 +43,7 @@
 <ul>
 <li>Para acessar a interface web após a subida dos containers, entre no endereço abaixo:</li>
 </ul>
-<pre><code>http://localhost:5137/)
+<pre><code>http://localhost:5137/
 </code></pre>
 <h2 id="🛠-stacks-utilizadas">🛠 Stacks utilizadas</h2>
 <blockquote>
@@ -62,7 +62,7 @@
 <li><strong>Node e Express</strong>: desenvolvimento server-side e a criação de suas rotas.</li>
 <li><strong>TypeScript</strong>: utilizei para tipar a aplicação através de interfaces.</li>
 <li><strong>TypeORM</strong>: integração da aplicação com o PostgreSQL através de classes entidades, consultas, e design da arquitetura do banco de dados.</li>
-<li><strong>JWT</strong>: JsonWebToken para criação de seção do usuário.</li>
+<li><strong>JWT</strong>: JsonWebToken para criação de token do usuário.</li>
 <li><strong>Bcrypt</strong>: hashear a senha salva no banco.</li>
 </ul>
 </div>
