@@ -26,7 +26,7 @@ export const LoginForm = (props: ILoginFormProps) => {
                 <form onSubmit={props.handleLogin} className="flex flex-col gap-6 relative">
                     <div className="relative w-5/6 mx-auto">
                         <UserSquare className="inline absolute top-[0.45rem] left-2" size={30} color='#1e7b54' weight="bold" />
-                        <Input name="email" id="email" type='text' placeholder="username" />
+                        <Input name="username" id="username" type='text' placeholder="username" />
                     </div>
                     <div className="relative w-5/6 mx-auto">
                         <Lock className="inline absolute top-[0.5rem] left-2" size={30} color='#1e7b54' weight="bold" />

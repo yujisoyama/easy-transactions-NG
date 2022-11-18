@@ -54,8 +54,8 @@ export const TransferTab = () => {
     }
 
     return (
-        <div className="flex flex-row justify-around gap-6 my-10 items-start h-[200px] dashboardMobile:flex-col dashboardMobile:h-[500px] dashboardMobile:items-center dashboardMobile:my-3 dashboardMobile:gap-0">
-            <div className="flex flex-col gap-4 w-64 dashboardMobile:h-[240px] dashboardMobile:justify-start">
+        <div className="flex flex-row justify-around gap-6 my-10 items-start h-[200px] transferMobile:flex-col transferMobile:h-[500px] transferMobile:items-center transferMobile:my-3 transferMobile:gap-0">
+            <div className="flex flex-col gap-4 w-64 transferMobile:h-[240px] transferMobile:justify-start">
                 <div className="relative">
                     <label className="text-paragraph text-sm" htmlFor="destinyUsername">Who would you like to transfer to?</label>
                     <At className="inline absolute top-8 left-2" size={30} color='#2cb67d' weight="bold" />

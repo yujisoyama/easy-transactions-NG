@@ -68,7 +68,7 @@ class TransactionService implements ITransactionService {
     }
 
     async getTransactions(account: Account, date?: Date | undefined, transactionType?: string | undefined): Promise<object[]> {
-        if (date !== undefined && transactionType !== undefined) {
+        if (date && transactionType) {
             switch (transactionType) {
                 case 'both':
                     return await getTransactionByAccountDateCashInAndOut(account.id, date!);
@@ -79,9 +79,9 @@ class TransactionService implements ITransactionService {
             }
         }
 
-        if (date === undefined && transactionType !== undefined) {
+        if (!date && transactionType) {
             switch (transactionType) {
-                case 'both':  
+                case 'both':
                     return await getTransactionByAccount(account.id);
                 case 'cash-out':
                     return await getTransactionByAccountCashOut(account.id);
@@ -89,7 +89,12 @@ class TransactionService implements ITransactionService {
                     return await getTransactionByAccountCashIn(account.id);
             }
         }
-        return [];
+
+        if (date && !transactionType) {
+            return await getTransactionByAccountDateCashInAndOut(account.id, date);
+        }
+
+        return await getTransactionByAccount(account.id);
     }
 }
 const transactionService = new TransactionService();

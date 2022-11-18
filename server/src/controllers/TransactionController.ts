@@ -20,22 +20,6 @@ class TransactionController {
         }
     }
 
-    async haveTransactions(req: Request, res: Response, transactionService: ITransactionService) {
-        try {
-            const id = Number(req.params.account);
-            const account: Partial<Account> = { id }
-            const result = await transactionService.haveTransaction(account);
-
-            if (result.length) {
-                return res.status(200).json({ haveTransactions: true })
-            }
-
-            return res.status(200).json({ haveTransactions: false })
-        } catch (error) {
-            return res.status(500).json({ message: "Unexpected error." })
-        }
-    }
-
     async getTransactions(req: Request, res: Response, transactionService: ITransactionService) {
         try {
             const { account, date, transactionType } = req.body;
@@ -44,7 +28,7 @@ class TransactionController {
             if (!result.length) {
                 return res.status(200).json({ message: "You don't have transactions with this filter." })
             }
-            
+
             return res.status(200).json(result);
         } catch (error) {
             return res.status(500).json({ message: error })

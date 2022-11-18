@@ -11,8 +11,10 @@ export const Dashboard = () => {
     return (
         <div className="bg-backgroundLight w-screen h-screen overflow-y-auto">
             <DashboardHeader username={user.username} />
-            <Balance />
-            <DashboardTabs />
+            <div className="w-full mt-10 flex flex-row justify-center gap-10 dashboardResponsive:flex-col dashboardResponsive:items-center">
+                <Balance />
+                <DashboardTabs />
+            </div>
             <div className="fixed w-full bottom-0">
                 <Footer />
             </div>
