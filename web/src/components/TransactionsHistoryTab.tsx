@@ -29,7 +29,7 @@ export const TransactionsHistoryTab = () => {
     let timer: number;
 
     useEffect(() => {
-        timer = setTimeout(() => getTransactions(), 1500);
+        timer = setTimeout(() => getHaveTransactions(), 1500);
     }, []);
 
     const selectDate = (event: FormEvent<HTMLInputElement>) => {
@@ -40,13 +40,27 @@ export const TransactionsHistoryTab = () => {
         setFilter({ ...filter, transactionType: event.currentTarget.value });
     }
 
+    const getHaveTransactions = async () => {
+        await api.get(`/transaction/${user.account.id}`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }).then(async res => {
+            if (res.data.haveTransaction) {
+                await getTransactions();
+                setHaveTransactions(res.data.haveTransaction);
+            }
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
     const getTransactions = async () => {
         await api.post('/transaction/history', filter, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
         }).then(res => {
-            setHaveTransactions(res.data.length > 0);
             setTransactions(res.data);
         }).catch(error => {
             console.log(error);

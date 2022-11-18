@@ -26,7 +26,8 @@ module.exports = {
     screens: {
       'mobile': { 'max': '500px' },
       'dashboardResponsive': { 'max': '1200px' },
-      'transferMobile': { 'max': '900px' }
+      'transferMobile': { 'max': '900px' },
+      'historyResponsive': { 'max': '600px' }
     },
     fontFamily: {
       noto: ['Noto Sans', 'sans-serif'],

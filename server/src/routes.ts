@@ -17,6 +17,7 @@ routes.use(authMiddleware);
 
 routes.get('/user/account', (req: Request, res: Response) => { accountController.getAccount(req, res) })
 routes.post('/transaction', (req: Request, res: Response) => { transactionController.makeTransaction(req, res, transactionService) })
+routes.get('/transaction/:accountId', (req: Request, res: Response) => { transactionController.haveTransaction(req, res, transactionService) })
 routes.post('/transaction/history', (req: Request, res: Response) => { transactionController.getTransactions(req, res, transactionService) })
 
 export default routes;
