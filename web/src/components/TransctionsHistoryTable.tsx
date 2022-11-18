@@ -1,12 +1,10 @@
 import { TransactionHistoryRow } from "./TransactionHistoryRow"
-import "./TransactionHistoryTable.css"
 import { ITransactions } from "./TransactionsHistoryTab";
+import "../styles/scrollbar.css"
 
 interface ITransactionHistoryTableProps {
     transactions: ITransactions[];
 }
-
-
 
 export const TransctionsHistoryTable = (props: ITransactionHistoryTableProps) => {
     return (
