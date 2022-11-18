@@ -12,7 +12,7 @@ export const TransactionHistoryRow = (props: ITransactionHistoryRowProps) => {
         <div className="w-full h-12 border-b border-backgroundLight grid grid-cols-4 text-start items-center text-sm">
             <p>{props.origin}</p>
             <p>{props.destiny}</p>
-            <p>$ {props.value}</p>
+            <p>$ {props.value.toFixed(2)}</p>
             <p>{date}</p>
         </div>
     )
