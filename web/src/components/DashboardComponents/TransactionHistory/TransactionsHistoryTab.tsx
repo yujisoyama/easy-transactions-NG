@@ -50,10 +50,9 @@ export const TransactionsHistoryTab = () => {
                 await getTransactions();
                 setHaveTransactions(res.data.haveTransaction);
             }
+            setHaveTransactions(res.data.haveTransaction);
         }).catch(error => {
             console.log(error);
-        }).finally(() => {
-            setHaveTransactions(false);
         });
     }
 
@@ -91,7 +90,7 @@ export const TransactionsHistoryTab = () => {
         return (
             <>
                 <TransactionHistoryFilter loading={loading} selectDate={selectDate} selectType={selectType} handleFilter={handleFilter} />
-                <TransactionsHistoryTable  transactions={transactions} />
+                <TransactionsHistoryTable transactions={transactions} />
             </>
         )
     }
