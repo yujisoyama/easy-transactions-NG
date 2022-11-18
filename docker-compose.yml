@@ -23,6 +23,18 @@ services:
       - '5440:5432'
     volumes: 
       - db:/var/lib/postgresql/data
+
+  web:
+    container_name: web
+    restart: always
+    build: ./web
+    ports:
+      - '5137:5137'
+    links:
+      - node
+    depends_on:
+      - node
+
 volumes:
   db:
     driver: local
