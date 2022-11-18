@@ -52,6 +52,8 @@ export const TransactionsHistoryTab = () => {
             }
         }).catch(error => {
             console.log(error);
+        }).finally(() => {
+            setHaveTransactions(false);
         });
     }
 
