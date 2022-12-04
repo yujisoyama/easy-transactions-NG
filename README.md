@@ -1,8 +1,14 @@
-# <p align="center"> NG Desafio </p>
+# Easy Transactions NG
 
-<p align="center">Aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si.</p>
+Aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/64661100/202777295-1ec11b42-0ed4-4c7d-8e71-7617aa59cbc5.png" /></p>
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | **Easy Transactions NG**
+| :label: Tecnologias | React, NodeJS, TypeORM, PostgreSQL, Tailwind, Docker
+| :rocket: URL         | not live yet
+
+![](https://user-images.githubusercontent.com/64661100/202777295-1ec11b42-0ed4-4c7d-8e71-7617aa59cbc5.png#vitrinedev)
 
 ## ▶️ Rodando localmente
 ### Pré-requisitos:
@@ -11,11 +17,11 @@
 ### Passo a Passo:
    - Clone esse repositório:
    ```
-   git clone https://github.com/yujisoyama/ngdesafio.git
+   git clone https://github.com/yujisoyama/easy-transactions-NG.git
    ```
    - Entre na pasta do projeto:
    ```
-   cd ngdesafio
+   cd easy-transactions-NG
    ```
    - Vamos construir os containers da aplicação server-side e da aplicação client-side. Para isso, execute os dois comandos abaixo:
    ```
