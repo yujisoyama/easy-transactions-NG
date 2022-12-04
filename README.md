@@ -1,6 +1,7 @@
 # Easy Transactions NG
 
 Aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si.
+Especificações do projeto: [Processo Seletivo NG <> TRYBE](https://ngcash.notion.site/Processo-Seletivo-NG-TRYBE-223de32e1ed047f2aa90cc0da84754ee)
 
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
