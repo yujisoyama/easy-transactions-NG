@@ -39,6 +39,9 @@ Especificações do projeto: [Processo Seletivo NG <> TRYBE](https://ngcash.noti
    ```
    http://localhost:5137/
    ```
+   
+## A arquitetura e design das tabelas no PostgreSQL foi feita da seguinte forma:
+<p align="center"><img src="https://user-images.githubusercontent.com/64661100/205955362-3b8fc53e-e9c0-467d-ba9d-c03537bd8835.png" /></p>
 
 ## 🛠 Stacks utilizadas
 
